@@ -15,7 +15,11 @@ public:
 	~SSP_Editor();
 
 public slots:
-void treeView_doubleClicked();
+void on_treeView_doubleClicked();
+void on_NewScene_clicked();
+void on_LoadScene_clicked();
+void on_SaveScene_clicked();
+void on_BuildBPF_clicked();
 
 private:
     Ui::SSP_EditorClass m_ui;
