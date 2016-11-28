@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_SSP_Editor.h"
+#include <qfilesystemmodel.h>
 
 class SSP_Editor : public QMainWindow
 {
@@ -13,4 +14,6 @@ public:
 
 private:
     Ui::SSP_EditorClass ui;
+	QFileSystemModel *model;
+	
 };
