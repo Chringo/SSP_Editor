@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SSP_EDITOR_SSP_EDITOR_H
+#define SSP_EDITOR_SSP_EDITOR_H
 
 #include <QtWidgets/QMainWindow>
 #include "ui_SSP_Editor.h"
@@ -17,7 +18,8 @@ public slots:
 void treeView_doubleClicked();
 
 private:
-    Ui::SSP_EditorClass ui;
-	QFileSystemModel *model;
-	QModelIndex *item;
+    Ui::SSP_EditorClass m_ui;
+	QFileSystemModel *m_model;
+	QModelIndex *m_item;
 };
+#endif

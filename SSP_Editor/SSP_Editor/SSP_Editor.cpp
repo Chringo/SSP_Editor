@@ -3,40 +3,40 @@
 SSP_Editor::SSP_Editor(QWidget *parent)
 	: QMainWindow(parent)
 {
-	ui.setupUi(this);
+	m_ui.setupUi(this);
 
 	/*making a fileSystemModel to enable a file viewer in the treeView widget*/
-	this->model = new QFileSystemModel(this);
-	this->model->setRootPath("C:/Users/Cool_David_92/Desktop/hehee");
-	this->model->setFilter(QDir::NoDotAndDotDot | QDir::Files);
+	this->m_model = new QFileSystemModel(this);
+	this->m_model->setRootPath("C:/Users/Cool_David_92/Desktop/hehee");
+	this->m_model->setFilter(QDir::NoDotAndDotDot | QDir::Files);
 	
 	/*a list of filters for the treeView*/
 	QStringList filters;
 	filters << "*.bbf";
 
 	/*setting the filters and disabling the user from seeing any other files*/
-	this->model->setNameFilters(filters);
-	this->model->setNameFilterDisables(false);
+	this->m_model->setNameFilters(filters);
+	this->m_model->setNameFilterDisables(false);
 
 	/*setting the fileSystemModel to the treeView and connecting the signal slot*/
-	ui.treeView->setModel(this->model);
-	connect(ui.treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(treeView_doubleClicked()));
+	m_ui.treeView->setModel(this->m_model);
+	connect(m_ui.treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(treeView_doubleClicked()));
 }
 
 
 SSP_Editor::~SSP_Editor()
 {
-	delete this->model;
+	delete this->m_model;
 }
 
 void SSP_Editor::treeView_doubleClicked()
 {
-	QModelIndex index = ui.treeView->currentIndex();
+	QModelIndex index = m_ui.treeView->currentIndex();
 	
 	/*checking to see if the selected object is valid*/
 	if (!index.isValid()) return;
 	
-	QFileInfo fileInfo = this->model->fileInfo(index);
+	QFileInfo fileInfo = this->m_model->fileInfo(index);
 	QString filePath = fileInfo.filePath();
 
 	/*send the filepath to the importer*/
