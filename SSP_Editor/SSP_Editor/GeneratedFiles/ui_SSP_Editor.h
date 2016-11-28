@@ -51,7 +51,7 @@ public:
     {
         if (SSP_EditorClass->objectName().isEmpty())
             SSP_EditorClass->setObjectName(QStringLiteral("SSP_EditorClass"));
-        SSP_EditorClass->resize(1122, 746);
+        SSP_EditorClass->resize(1122, 747);
         actionNew_scene = new QAction(SSP_EditorClass);
         actionNew_scene->setObjectName(QStringLiteral("actionNew_scene"));
         actionLoad_scene = new QAction(SSP_EditorClass);
