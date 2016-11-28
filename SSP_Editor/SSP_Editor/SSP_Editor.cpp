@@ -3,12 +3,14 @@
 SSP_Editor::SSP_Editor(QWidget *parent)
 	: QMainWindow(parent)
 {
-	ui->setupUi(this);
-	QFileSystemModel *model = new QFileSystemModel(this);
-	model->setRootPath("C:/");
-	ui->treeWidget->setModel(model)
+	ui.setupUi(this);
+	this->model = new QFileSystemModel(this);
+	this->model->setRootPath("C:/");
+	ui.treeView->setModel(this->model);
 }
+
 
 SSP_Editor::~SSP_Editor()
 {
+	delete this->model;
 }

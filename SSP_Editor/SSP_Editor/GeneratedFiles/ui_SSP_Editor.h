@@ -23,7 +23,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
-#include <QtWidgets/QTreeWidget>
+#include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -36,12 +36,12 @@ public:
     QAction *actionSave_scene;
     QAction *actionBuild_BPF;
     QWidget *centralWidget;
-    QTreeWidget *treeWidget;
     QLabel *label;
     QGraphicsView *graphicsView;
     QLabel *label_2;
     QGroupBox *groupBox;
     QPushButton *pushButton;
+    QTreeView *treeView;
     QMenuBar *menuBar;
     QMenu *menuEditor;
     QToolBar *mainToolBar;
@@ -62,9 +62,6 @@ public:
         actionBuild_BPF->setObjectName(QStringLiteral("actionBuild_BPF"));
         centralWidget = new QWidget(SSP_EditorClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        treeWidget = new QTreeWidget(centralWidget);
-        treeWidget->setObjectName(QStringLiteral("treeWidget"));
-        treeWidget->setGeometry(QRect(20, 30, 201, 571));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(20, 10, 47, 13));
@@ -80,6 +77,9 @@ public:
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(20, 610, 75, 23));
+        treeView = new QTreeView(centralWidget);
+        treeView->setObjectName(QStringLiteral("treeView"));
+        treeView->setGeometry(QRect(20, 30, 201, 571));
         SSP_EditorClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(SSP_EditorClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -103,7 +103,6 @@ public:
         menuEditor->addAction(actionBuild_BPF);
 
         retranslateUi(SSP_EditorClass);
-        QObject::connect(pushButton, SIGNAL(clicked()), treeWidget, SLOT(update()));
 
         QMetaObject::connectSlotsByName(SSP_EditorClass);
     } // setupUi

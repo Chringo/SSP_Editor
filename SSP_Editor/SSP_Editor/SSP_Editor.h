@@ -13,7 +13,7 @@ public:
 	~SSP_Editor();
 
 private:
-    Ui::SSP_EditorClass *ui;
-
+    Ui::SSP_EditorClass ui;
+	QFileSystemModel *model;
 	
 };
