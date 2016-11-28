@@ -9,6 +9,7 @@ class SSP_Editor : public QMainWindow
 
 public:
     SSP_Editor(QWidget *parent = Q_NULLPTR);
+	~SSP_Editor();
 
 private:
     Ui::SSP_EditorClass ui;
