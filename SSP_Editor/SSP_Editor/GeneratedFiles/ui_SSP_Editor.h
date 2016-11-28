@@ -20,6 +20,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QTreeWidget>
@@ -40,6 +41,7 @@ public:
     QGraphicsView *graphicsView;
     QLabel *label_2;
     QGroupBox *groupBox;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QMenu *menuEditor;
     QToolBar *mainToolBar;
@@ -75,6 +77,9 @@ public:
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setGeometry(QRect(950, 30, 161, 571));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(20, 610, 75, 23));
         SSP_EditorClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(SSP_EditorClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -98,6 +103,7 @@ public:
         menuEditor->addAction(actionBuild_BPF);
 
         retranslateUi(SSP_EditorClass);
+        QObject::connect(pushButton, SIGNAL(clicked()), treeWidget, SLOT(update()));
 
         QMetaObject::connectSlotsByName(SSP_EditorClass);
     } // setupUi
@@ -112,6 +118,7 @@ public:
         label->setText(QApplication::translate("SSP_EditorClass", "File Editor", 0));
         label_2->setText(QApplication::translate("SSP_EditorClass", "Preview", 0));
         groupBox->setTitle(QApplication::translate("SSP_EditorClass", "Attributes", 0));
+        pushButton->setText(QApplication::translate("SSP_EditorClass", "Reload", 0));
         menuEditor->setTitle(QApplication::translate("SSP_EditorClass", "Editor", 0));
     } // retranslateUi
 

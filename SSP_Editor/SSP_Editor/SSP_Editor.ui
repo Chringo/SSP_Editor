@@ -73,6 +73,19 @@
      <string>Attributes</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>610</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reload</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -130,5 +143,22 @@
  <resources>
   <include location="SSP_Editor.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>treeWidget</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>660</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>112</x>
+     <y>629</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
